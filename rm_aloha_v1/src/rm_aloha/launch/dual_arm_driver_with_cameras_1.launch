@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Load the nodelet manager -->
+  <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager"/>
+
+  <!-- Realsense cam_left_wrist -->
+  <node pkg="nodelet" type="nodelet" name="cam_left_wrist" args="load realsense2_camera/RealSenseNodeFactory nodelet_manager">
+    <param name="camera" value="cam_left_wrist"/>
+    <param name="serial_no" value="152122077968"/>
+    <param name="enable_depth" value="false"/>
+    <param name="color_fps" value="30"/>
+  </node>
+
+  <!-- Realsense cam_right_wrist -->
+  <node pkg="nodelet" type="nodelet" name="cam_right_wrist" args="load realsense2_camera/RealSenseNodeFactory nodelet_manager">
+    <param name="camera" value="cam_right_wrist"/>
+    <param name="serial_no" value="150622070125"/>
+    <param name="enable_depth" value="false"/>
+    <param name="color_fps" value="30"/>
+  </node>
+
+  <!-- Realsense cam_high -->
+  <node pkg="nodelet" type="nodelet" name="cam_high" args="load realsense2_camera/RealSenseNodeFactory nodelet_manager">
+    <param name="camera" value="cam_high"/>
+    <param name="serial_no" value="242322076532"/>
+    <param name="enable_depth" value="false"/>
+    <param name="color_fps" value="30"/>
+  </node>
+
+  <!-- Static transform publishers -->
+  <node
+    name="camera_left_transform_broadcaster"
+    pkg="tf2_ros"
+    type="static_transform_publisher"
+    args="0 0.25 0 0 0 0 /l_Link6 /cam_left_wrist_link "/>
+
+  <node
+    name="camera_right_transform_broadcaster"
+    pkg="tf2_ros"
+    type="static_transform_publisher"
+    args="0 0.25 0 0 0 0 /r_Link6 /cam_right_wrist_link "/>
+
+  <node
+    name="camera_high_transform_broadcaster"
+    pkg="tf2_ros"
+    type="static_transform_publisher"
+    args="0 0.25 0 0 0 0 /aloha_world /cam_high_link "/>
+
+</launch>

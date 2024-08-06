@@ -1,0 +1,2 @@
+rm_aloha:rm_description:rm_msgs
+-DCATKIN_WHITELIST_PACKAGES= -DCATKIN_DEVEL_PREFIX=/home/rm/rm_aloha/devel -DCMAKE_INSTALL_PREFIX=/home/rm/rm_aloha/install -G Unix Makefiles

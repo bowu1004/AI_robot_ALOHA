@@ -1,0 +1,8 @@
+prefix=/home/rm/rm_aloha/devel
+
+Name: rm_msgs
+Description: Description of rm_msgs
+Version: 0.0.0
+Cflags: -I/home/rm/rm_aloha/devel/include -I/home/rm/rm_aloha/src/rm_msgs/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs rospy std_msgs roscpp

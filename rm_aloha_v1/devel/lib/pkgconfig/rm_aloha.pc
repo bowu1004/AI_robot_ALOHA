@@ -1,0 +1,8 @@
+prefix=/home/rm/rm_aloha/devel
+
+Name: rm_aloha
+Description: Description of rm_aloha
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

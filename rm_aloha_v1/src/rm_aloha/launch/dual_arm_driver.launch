@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <include file="$(find rm_aloha)/launch/r_aloha.launch">
+  </include>
+  
+  <include file="$(find rm_aloha)/launch/l_aloha.launch">
+  </include>
+
+  <!-- Moveit -->
+  <include file="$(find rm_aloha)/launch/demo_realrobot.launch">
+  </include>
+
+</launch>

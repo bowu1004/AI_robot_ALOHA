@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+
+<!--   <include file="$(find rm_aloha)/launch/r_aloha.launch"> -->
+<!--   </include> -->
+
+<!--   <include file="$(find rm_aloha)/launch/l_aloha.launch"> -->
+<!--   </include> -->
+  <!-- Realsense -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="camera"                          value="cam_left_wrist"/>
+    <arg name="serial_no"                       value="152122077968"/>
+    <arg name="enable_depth"                    value="false"/>
+    <arg name="color_fps"                       value="30"/>
+  </include>
+
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="camera"                          value="cam_right_wrist"/>
+    <arg name="serial_no"                       value="150622070125"/>
+    <arg name="enable_depth"                    value="false"/>
+    <arg name="color_fps"                       value="30"/>
+  </include>
+
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="camera"                          value="cam_high"/>
+    <arg name="serial_no"                       value="242322076532"/>
+    <arg name="enable_depth"                    value="false"/>
+    <arg name="color_fps"                       value="30"/>
+  </include>
+
+  <node
+    name="camera_left_transform_broadcaster"
+    pkg="tf2_ros"
+    type="static_transform_publisher"
+    args="0 0.25 0 0 0 0 /l_Link6 /cam_left_wrist_link "/>
+
+  <node
+    name="camera_right_transform_broadcaster"
+    pkg="tf2_ros"
+    type="static_transform_publisher"
+    args="0 0.25 0 0 0 0 /r_Link6 /cam_right_wrist_link "/>
+
+  <node
+    name="camera_high_transform_broadcaster"
+    pkg="tf2_ros"
+    type="static_transform_publisher"
+    args="0 0.25 0 0 0 0 /aloha_world /cam_high_link "/>
+
+
+  <!-- Moveit -->
+<!--   <include file="$(find rm_aloha)/launch/demo_realrobot.launch"> -->
+<!--   </include> -->
+
+</launch>
